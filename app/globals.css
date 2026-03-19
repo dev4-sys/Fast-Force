@@ -1,26 +1,64 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply antialiased;
+    /* Sets the default font size to 15px across the site for consistency */
+    font-size: 15px; 
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* --- Navigation Animations --- */
+  .nav-link-underline {
+    @apply absolute left-0 bottom-0 h-[2px] bg-[#005177] origin-left transform scale-x-0 transition-transform duration-300 ease-out;
+  }
+  
+  .group:hover .nav-link-underline {
+    @apply scale-x-100;
+  }
+
+  /* --- Why Us Table Styling --- */
+  .why-us-table-container {
+    @apply overflow-x-auto shadow-sm border border-zinc-200 rounded-sm;
+  }
+
+  .why-us-table {
+    @apply w-full border-collapse text-[15px];
+  }
+
+  /* Brand Header: Blue tint from image_ef696e.png */
+  .why-us-table thead tr {
+    background-color: #E6F4FA;
+    color: #005177;
+  }
+
+  .why-us-table th {
+    @apply p-4 text-left font-black uppercase tracking-wider border border-zinc-200;
+  }
+
+  .why-us-table td {
+    @apply p-4 border border-zinc-200 leading-relaxed vertical-align-top;
+  }
+
+  /* --- Footer Enhancements --- */
+  .footer-social-icon {
+    @apply p-4 bg-zinc-50 border border-zinc-100 text-zinc-500 hover:bg-[#74B72E] hover:text-white transition-all duration-300 rounded-sm;
+  }
+
+  .footer-cta-button {
+    @apply w-full bg-black text-white py-5 font-black text-[13px] tracking-[0.2em] hover:bg-[#74B72E] transition-all relative overflow-hidden;
+  }
+}
+
+/* --- Custom Utilities for 15px and Smooth Transitions --- */
+.text-15 {
+  font-size: 15px;
+}
+
+/* For the dropdown menu hover effect */
+.dropdown-shadow {
+  box-shadow: 0 10px 30px -10px rgba(0, 81, 119, 0.15);
 }
