@@ -114,7 +114,7 @@ export default function HiringProcess() {
           {/* Process Image */}
           <div className="w-full relative mt-10 p-4 bg-[#f8fafc] border border-zinc-100 shadow-inner rounded-sm">
             <Image
-              src="/ourhiring.jpg" 
+              src="\our.jpg" 
               alt="Fast Force Work Process"
               width={1024}
               height={503}
