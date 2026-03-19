@@ -21,7 +21,7 @@ const SERVICE_SECTIONS = [
   {
     title: "OUR SPECIALITY IN FARMING",
     description: "Looking for a Dairy farm worker, Harvesters, farm hand or machine operator? Look no further, get in touch with us!",
-    image: "/iStock-961141132.jpg", // From image_eeea62.jpg
+    image: "/iStock-961141132.jpg",
     imageAlt: "Farming machinery and worker",
     reverse: false,
     bgColor: "bg-white"
@@ -29,7 +29,7 @@ const SERVICE_SECTIONS = [
   {
     title: "OUR SPECIALITY IN RELIEF DRIVER SERVICES",
     description: "We supply verified drivers with class 1, 2, 4 and 5 for long and short-term assignments to keep you moving.",
-    image: "/relief-driver.jpg", // From image_eeea62.jpg
+    image: "/relief-driver.jpg",
     imageAlt: "Relief driver with commercial truck",
     reverse: true,
     bgColor: "bg-[#f5f5f5]" 
@@ -37,7 +37,7 @@ const SERVICE_SECTIONS = [
   {
     title: "Our Speciality in HEALTH CARE SERVICES",
     description: "We have Registered Nurses and Caregivers available to assist you for short and long term care. We have a pool of competent candidates who are ready to provide exceptional care.",
-    image: "/Health-Care-Nurse.jpg", // From image_eeea62.jpg
+    image: "/Health-Care-Nurse.jpg",
     imageAlt: "Our Speciality in HEALTH CARE SERVICES",
     reverse: false,
     bgColor: "bg-white"
@@ -47,12 +47,25 @@ const SERVICE_SECTIONS = [
 export default function CoreServices() {
   return (
     <div className="bg-white">
-      {/* --- PAGE HEADER --- */}
-      <section className="bg-white py-20 px-6 max-w-7xl mx-auto">
-        <h1 className="text-[#005177] font-black text-4xl tracking-tighter uppercase mb-4">
-          Core <span className="text-[#74B72E]">Services</span>
-        </h1>
-        <div className="w-20 h-1 bg-[#74B72E]"></div>
+      {/* --- PAGE HEADER WITH BACKGROUND IMAGE --- */}
+      <section className="relative h-[350px] md:h-[450px] flex items-center overflow-hidden">
+        {/* Background Image */}
+        <Image 
+          src="/corevalues.jpg" // You can change this to any hero image
+          alt="Core Services Header"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        {/* Dark Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-[#005177]/80"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+          <h1 className="text-white font-black text-4xl md:text-6xl tracking-tighter uppercase mb-6 leading-none">
+            Core <span className="text-[#74B72E]">Services</span>
+          </h1>
+          <div className="w-20 h-1.5 bg-[#74B72E]"></div>
+        </div>
       </section>
 
       {/* --- SERVICE SECTIONS --- */}
@@ -76,7 +89,7 @@ export default function CoreServices() {
                 {/* Learn More Button with Arrow Graphic */}
                 <Link 
                   href="/contact" 
-                  className="inline-flex items-center gap-3 bg-[#005177] text-white px-6 py-3 text-[13px] font-bold tracking-widest hover:bg-[#74B72E] transition-all group w-fit"
+                  className="inline-flex items-center gap-3 bg-[#005177] text-white px-8 py-4 text-[13px] font-bold tracking-widest hover:bg-[#74B72E] transition-all group w-fit"
                 >
                   <span className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-[#74B72E] border-b-[6px] border-b-transparent group-hover:border-l-white transition-colors"></span>
                   LEARN MORE

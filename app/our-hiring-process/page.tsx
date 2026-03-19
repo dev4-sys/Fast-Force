@@ -23,29 +23,42 @@ const HIRING_STEPS = [
 export default function HiringProcess() {
   return (
     <div className="bg-white">
-      {/* --- PAGE HEADER --- */}
-      <section className="py-16 px-6 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 border-b border-zinc-100">
-        <div className="max-w-2xl">
-          <h1 className="text-[#005177] font-black text-3xl md:text-4xl tracking-tighter uppercase mb-4 leading-tight">
-            FIND THE RIGHT WORK FORCE FOR YOUR ORGANIZATION
-          </h1>
-          <div className="w-16 h-1 bg-[#74B72E]"></div>
+      {/* --- PAGE HEADER WITH BACKGROUND IMAGE --- */}
+      <section className="relative h-[350px] md:h-[450px] flex items-center overflow-hidden">
+        {/* Background Image */}
+        <Image 
+          src="/review.jpg" // Using one of your high-quality images as a background
+          alt="Hiring Process Header"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        {/* Dark Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-[#005177]/85"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="max-w-2xl">
+            <h1 className="text-white font-black text-3xl md:text-5xl tracking-tighter uppercase mb-6 leading-tight">
+              FIND THE RIGHT WORK FORCE FOR YOUR ORGANIZATION
+            </h1>
+            <div className="w-20 h-1.5 bg-[#74B72E]"></div>
+          </div>
+
+          {/* Specific "Enquire Now" button */}
+          <Link 
+            href="/contact" 
+            className="inline-flex items-center bg-[#005177] text-white pr-8 border border-white/20 hover:bg-[#74B72E] transition-all duration-300 group shrink-0"
+          >
+            <span className="bg-[#74B72E] p-4 mr-6 group-hover:bg-[#003d5a] transition-colors">
+              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+            <span className="text-[14px] font-black tracking-widest uppercase">
+              Enquire Now
+            </span>
+          </Link>
         </div>
-        
-        {/* Specific "Enquire Now" button from image_ee8947.png */}
-        <Link 
-          href="/contact" 
-          className="inline-flex items-center bg-[#005177] text-white pr-6 hover:bg-[#74B72E] transition-all duration-300 group shrink-0"
-        >
-          <span className="bg-[#74B72E] p-3 mr-4 group-hover:bg-[#003d5a] transition-colors">
-            <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </span>
-          <span className="text-[13px] font-black tracking-widest uppercase">
-            Enquire Now
-          </span>
-        </Link>
       </section>
 
       {/* --- PROCESS STEPS --- */}
@@ -58,7 +71,7 @@ export default function HiringProcess() {
               }`}
             >
               <div className="flex-1 space-y-8">
-                <h2 className="text-[#74B72E] font-black text-2xl md:text-3xl tracking-tight uppercase leading-tight">
+                <h2 className="text-[#74B72E] font-black text-2xl md:text-4xl tracking-tight uppercase leading-tight">
                   {step.title}
                 </h2>
                 <p className="text-zinc-500 text-[15px] leading-relaxed font-medium">
@@ -82,16 +95,14 @@ export default function HiringProcess() {
       </section>
 
       {/* --- HUNT TAILORED TO THE JOB SECTION --- */}
-      <section className="py-20 px-6 bg-white border-t border-zinc-100">
+      <section className="py-24 px-6 bg-white border-t border-zinc-100">
         <div className="max-w-7xl mx-auto">
-          
-          {/* 1. Header Text Content */}
-          <div className="mb-12">
-            <h2 className="text-[#005177] font-black text-3xl md:text-4xl tracking-tighter uppercase mb-4">
+          <div className="mb-16 text-center lg:text-left">
+            <h2 className="text-[#005177] font-black text-3xl md:text-4xl tracking-tighter uppercase mb-6">
               HUNT TAILORED TO THE JOB
             </h2>
-            <div className="space-y-4 max-w-4xl">
-              <p className="text-[#333333] font-bold text-[16px] leading-tight">
+            <div className="space-y-4 max-w-4xl mx-auto lg:mx-0">
+              <p className="text-[#333333] font-bold text-[18px] leading-tight">
                 After initial process, our consultant will visit your premises to get to know you and the business requirements better.
               </p>
               <p className="text-zinc-500 text-[15px] leading-relaxed">
@@ -100,10 +111,10 @@ export default function HiringProcess() {
             </div>
           </div>
 
-          {/* 2. Process Image (work-process-1024x503.jpg) */}
-          <div className="w-full relative mt-10">
+          {/* Process Image */}
+          <div className="w-full relative mt-10 p-4 bg-[#f8fafc] border border-zinc-100 shadow-inner rounded-sm">
             <Image
-              src="/work-process-1024x503.jpg" 
+              src="/ourhiring.jpg" 
               alt="Fast Force Work Process"
               width={1024}
               height={503}
