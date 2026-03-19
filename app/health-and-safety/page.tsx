@@ -3,12 +3,12 @@ import { ChevronRight } from "lucide-react";
 
 export default function HealthAndSafety() {
   const USEFUL_LINKS = [
-    { name: "WHS Policy", href: "#" },
-    { name: "Drug & Alcohol Policy", href: "#" },
-    { name: "Health & Safety Guide", href: "#" },
-    { name: "Client WHS Systems Checklist", href: "#" },
-    { name: "Incident or Near Miss Report", href: "#" },
-    { name: "Accident Investigation Form", href: "#" },
+    { name: "WHS Policy", href: "\WHS-policy.pdf" },
+    { name: "Drug & Alcohol Policy", href: "\Drug__Alcohol_Policy.pdf" },
+    { name: "Health & Safety Guide", href: "\Health__Safety.pdf" },
+    { name: "Client WHS Systems Checklist", href: "\Client-WHS-Systems-Checklist.pdf" },
+    { name: "Incident or Near Miss Report", href: "\INCIDENT-OR-NEAR-MISS-REPORT.pdf" },
+    { name: "Accident Investigation Form", href: "\Accident-Investigation-Form.pdf" },
   ];
 
   const INDUCTION_POINTS = [
