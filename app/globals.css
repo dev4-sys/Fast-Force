@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 /* v4 requirement: This allows @apply to work with standard Tailwind utilities */
 @reference "tailwindcss";
 
@@ -10,19 +9,21 @@
   --color-brand-light-blue: #E6F4FA;
 }
 
+/* --- Base Styles --- */
 @layer base {
   body {
     @apply antialiased text-zinc-900;
     /* Sets the default font size to 15px across the site */
     font-size: 15px; 
+    @apply bg-white text-zinc-900;
   }
 }
 
+/* --- Component Styles --- */
 @layer components {
   /* --- Navigation Animations --- */
   .nav-link-underline {
-    /* Fixed: reference now allows these utilities to be found */
-    @apply absolute left-0 bottom-0 h-[2px] bg-brand-navy origin-left scale-x-0 transition-transform duration-300 ease-out;
+    @apply absolute left-0 bottom-0 h-[2px] bg-[#005177] origin-left transform scale-x-0 transition-transform duration-300 ease-out;
   }
   
   .group:hover .nav-link-underline {
@@ -38,7 +39,7 @@
     @apply w-full border-collapse text-[15px];
   }
 
-  /* Brand Header using theme variable */
+  /* Brand Header: Blue tint from image_ef696e.png */
   .why-us-table thead tr {
     background-color: var(--color-brand-light-blue);
     color: var(--color-brand-navy);
@@ -49,7 +50,7 @@
   }
 
   .why-us-table td {
-    @apply p-4 border border-zinc-200 leading-relaxed align-top;
+    @apply p-4 border border-zinc-200 leading-relaxed vertical-align-top;
   }
 
   /* --- Footer Enhancements --- */
@@ -62,12 +63,12 @@
   }
 }
 
-/* --- Custom Utilities --- */
+/* --- Custom Utilities for 15px and Smooth Transitions --- */
 .text-15 {
   font-size: 15px;
 }
 
-/* For the dropdown menu hover effect */
-.dropdown-shadow {
-  box-shadow: 0 10px 30px -10px rgba(0, 81, 119, 0.15);
+  .dropdown-shadow {
+    box-shadow: 0 10px 30px -10px rgba(0, 81, 119, 0.15);
+  }
 }
