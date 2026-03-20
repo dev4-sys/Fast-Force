@@ -99,7 +99,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <div className="bg-white border border-zinc-100 shadow-xl py-4 min-w-[220px]">
                     {[
                       { name: "ABOUT US", href: "/about-us" },
-                      { name: "CORE VALUES", href: "/core-values" }, // Added Core Values here
+                      { name: "CORE VALUES", href: "/core-values" },
+                      { name: "CORE SERVICES", href: "/core-services" }, // Fixed backslash here
+                      { name: "CORPORATE PROFILE", href: "/corporate-profile" },
                     ].map((item) => (
                       <Link 
                         key={item.href}
@@ -125,7 +127,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               })}
             </div>
 
-            <button className="lg:hidden text-brand-navy"><Menu size={28} /></button>
+            <button className="xl:hidden text-brand-navy"><Menu size={28} /></button>
           </div>
         </nav>
 
@@ -141,7 +143,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </div>
                 <div className="flex space-x-4 mb-10 w-full justify-center lg:justify-start">
                   {SOCIAL_LINKS.map(({ Icon, href }, i) => (
-                    <a key={i} href={href} className="footer-social-icon">
+                    <a key={i} href={href} className="w-10 h-10 flex items-center justify-center rounded-full border border-zinc-200 hover:bg-brand-lime hover:border-brand-lime transition-all text-zinc-400 hover:text-brand-navy">
                       <Icon size={20} />
                     </a>
                   ))}
@@ -152,9 +154,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <div className="flex flex-col items-center lg:items-start lg:border-l lg:border-zinc-100 lg:pl-12">
                 <h3 className="text-black font-black text-[16px] mb-8 tracking-widest border-b-2 border-zinc-50 pb-2 w-full text-center lg:text-left uppercase">Partners</h3>
                 <div className="space-y-8 flex flex-col items-center lg:items-start">
-                  <Image src="/rcsa.png" alt="RCSA" width={180} height={50} className="grayscale hover:grayscale-0 transition opacity-80" />
-                  <Image src="/sitesafe.png" alt="SiteSafe" width={160} height={50} className="grayscale hover:grayscale-0 transition opacity-80" />
-                  <Image src="/adt.png" alt="ADT" width={140} height={50} className="grayscale hover:grayscale-0 transition opacity-80" />
+                  <Image src="/RCSA-Corporate-Member-Logo.jpg" alt="RCSA" width={180} height={50} className="                                     hover:grayscale-0 transition opacity-80" />
+                  <Image src="/ss_member-long-maori.jpg" alt="SiteSafe" width={180} height={50} className=" hover:grayscale-0 transition opacity-80" />
+                  <Image src="/adt.jpg" alt="ADT" width={180} height={50} className=" hover:grayscale-0 transition opacity-80" />
                 </div>
               </div>
 

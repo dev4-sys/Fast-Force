@@ -93,21 +93,6 @@ export default function CoreValues() {
           ))}
         </div>
       </section>
-
-      {/* --- CTA SECTION --- */}
-      <section className="bg-brand-navy py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center text-white">
-          <h3 className="text-2xl md:text-4xl font-black uppercase mb-8">Fast Force by name, Fast by nature.</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/register" className="bg-brand-lime text-brand-navy px-8 py-4 font-black uppercase tracking-widest hover:bg-white transition-colors">
-              Request Talent
-            </Link>
-            <Link href="/contact" className="border-2 border-white text-white px-8 py-4 font-black uppercase tracking-widest hover:bg-white hover:text-brand-navy transition-colors">
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
