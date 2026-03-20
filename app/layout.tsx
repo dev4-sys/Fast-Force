@@ -45,36 +45,35 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Image src="/fast-force-logo.png" alt="Fastforce Logo" width={220} height={60} className="w-40 md:w-56 h-auto" priority />
             </Link>
             
-            <div className="hidden xl:flex items-center space-x-8 text-[15px] font-bold tracking-tight text-[#005177]">
-              <Link href="/" className="relative py-1 hover:text-[#74B72E] transition-colors">
+            <div className="hidden xl:flex items-center space-x-8 text-[15px] font-bold tracking-tight text-brand-navy">
+              <Link href="/" className="relative py-1 hover:text-brand-lime transition-colors">
                 HOME
               </Link>
 
               {/* EMPLOYERS DROPDOWN */}
               <div className="group relative py-1 cursor-pointer">
-                <div className="flex items-center gap-1 group-hover:text-[#74B72E] transition-colors duration-300">
+                <div className="flex items-center gap-1 group-hover:text-brand-lime transition-colors duration-300">
                   EMPLOYERS
                   <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
                 </div>
-                <span className="absolute left-0 bottom-0 w-full h-[2px] bg-[#005177] origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                <span className="nav-link-underline" />
                 
-                {/* --- DROPDOWN BOX --- */}
                 <div className="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
                   <div className="bg-white border border-zinc-100 shadow-xl py-4 min-w-[340px]">
                     {[
                       { name: "WHY US", href: "/why-us" },
                       { name: "CORE SERVICES", href: "/core-services" },
-                      { name: "OUR HIRING PROCESS", href: "/our-hiring-process" },
+                      { name: "OUR HIRING PROCESS", href: "/hiring-process" },
                       { name: "HEALTH & SAFETY", href: "/health-and-safety" },
-                      { name: "GENERAL TERMS OF THE BUSINESS PERMANENT PLACEMENT", href: "/general-terms-permanent" },
-                      { name: "GENERAL TERMS OF THE BUSINESS TEMPORARY PLACEMENT", href: "/general-terms-temporary" },
+                      { name: "TERMS - PERMANENT", href: "/general-terms-permanent" },
+                      { name: "TERMS - TEMPORARY", href: "/general-terms-temporary" },
                       { name: "TIMESHEET", href: "/Timesheet.pdf" },
-                      { name: "REQUEST TALET", href: "/register" }
+                      { name: "REQUEST TALENT", href: "/register" }
                     ].map((item) => (
                       <Link 
                         key={item.href}
                         href={item.href} 
-                        className="block px-8 py-3 text-[#005177] font-bold text-[13px] hover:bg-zinc-50 hover:text-[#74B72E] transition-colors uppercase leading-tight tracking-tight border-l-4 border-transparent hover:border-[#74B72E]"
+                        className="block px-8 py-3 text-brand-navy font-bold text-[13px] hover:bg-zinc-50 hover:text-brand-lime transition-colors uppercase leading-tight tracking-tight border-l-4 border-transparent hover:border-brand-lime"
                       >
                         {item.name}
                       </Link>
@@ -83,19 +82,50 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </div>
               </div>
 
-              {/* OTHER MAIN NAV LINKS */}
-              {["CANDIDATES", "WHO ARE WE", "HEALTH & SAFETY", "H&S TRAINING", "CONTACT"].map((name) => {
+              <Link href="/candidates" className="group relative py-1 hover:text-brand-lime transition-colors duration-300">
+                CANDIDATES
+                <span className="nav-link-underline" />
+              </Link>
+
+              {/* WHO ARE WE DROPDOWN */}
+              <div className="group relative py-1 cursor-pointer">
+                <div className="flex items-center gap-1 group-hover:text-brand-lime transition-colors duration-300">
+                  WHO WE ARE
+                  <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
+                </div>
+                <span className="nav-link-underline" />
+                
+                <div className="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
+                  <div className="bg-white border border-zinc-100 shadow-xl py-4 min-w-[220px]">
+                    {[
+                      { name: "ABOUT US", href: "/about-us" },
+                      { name: "CORE VALUES", href: "/core-values" }, // Added Core Values here
+                    ].map((item) => (
+                      <Link 
+                        key={item.href}
+                        href={item.href} 
+                        className="block px-8 py-3 text-brand-navy font-bold text-[13px] hover:bg-zinc-50 hover:text-brand-lime transition-colors uppercase leading-tight tracking-tight border-l-4 border-transparent hover:border-brand-lime"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* REMAINING LINKS */}
+              {["HEALTH & SAFETY", "H&S TRAINING", "CONTACT"].map((name) => {
                 const linkHref = `/${name.toLowerCase().replace(/ & /g, '-and-').replace(/\s+/g, '-')}`;
                 return (
-                  <Link key={name} href={linkHref} className="group relative py-1 hover:text-[#74B72E] transition-colors duration-300">
+                  <Link key={name} href={linkHref} className="group relative py-1 hover:text-brand-lime transition-colors duration-300">
                     {name}
-                    <span className="absolute left-0 bottom-0 w-full h-[2px] bg-[#005177] origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                    <span className="nav-link-underline" />
                   </Link>
                 );
               })}
             </div>
 
-            <button className="lg:hidden text-[#005177]"><Menu size={28} /></button>
+            <button className="lg:hidden text-brand-navy"><Menu size={28} /></button>
           </div>
         </nav>
 
@@ -111,7 +141,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </div>
                 <div className="flex space-x-4 mb-10 w-full justify-center lg:justify-start">
                   {SOCIAL_LINKS.map(({ Icon, href }, i) => (
-                    <a key={i} href={href} className="p-4 bg-zinc-50 border border-zinc-100 text-zinc-500 hover:bg-[#74B72E] hover:text-white transition-all rounded-sm">
+                    <a key={i} href={href} className="footer-social-icon">
                       <Icon size={20} />
                     </a>
                   ))}
@@ -132,7 +162,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <h3 className="text-black font-black text-[16px] mb-8 tracking-widest border-b-2 border-zinc-50 pb-2 w-full uppercase">Quick Links</h3>
                 <ul className="space-y-4 text-[15px] font-bold text-zinc-600 mb-12">
                   {QUICK_LINKS.map((link) => (
-                    <li key={link.name}><Link href={link.href} className="hover:text-[#005177] transition-colors">{link.name}</Link></li>
+                    <li key={link.name}><Link href={link.href} className="hover:text-brand-navy transition-colors">{link.name}</Link></li>
                   ))}
                 </ul>
               </div>
@@ -143,8 +173,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   {OFFICES.map((office) => (
                     <div key={office.city}>
                       <p className="text-black font-black text-[13px] uppercase mb-1">{office.city}</p>
-                      <p className="text-[14px] font-medium text-zinc-600">Phone: <a href={`tel:${office.phone}`} className="font-bold text-black hover:text-[#74B72E]">{office.phone}</a></p>
-                      <p className="text-[14px] text-zinc-500 hover:text-[#74B72E] cursor-pointer transition-colors">{office.email}</p>
+                      <p className="text-[14px] font-medium text-zinc-600">Phone: <a href={`tel:${office.phone}`} className="font-bold text-black hover:text-brand-lime">{office.phone}</a></p>
+                      <p className="text-[14px] text-zinc-500 hover:text-brand-lime cursor-pointer transition-colors">{office.email}</p>
                     </div>
                   ))}
                 </div>

@@ -1,11 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* v4 requirement: This allows @apply to work with standard Tailwind utilities */
+@reference "tailwindcss";
+
+@theme {
+  /* Defining your brand colors as theme variables */
+  --color-brand-navy: #005177;
+  --color-brand-lime: #74B72E;
+  --color-brand-light-blue: #E6F4FA;
+}
 
 @layer base {
   body {
-    @apply antialiased;
-    /* Sets the default font size to 15px across the site for consistency */
+    @apply antialiased text-zinc-900;
+    /* Sets the default font size to 15px across the site */
     font-size: 15px; 
   }
 }
@@ -13,7 +21,8 @@
 @layer components {
   /* --- Navigation Animations --- */
   .nav-link-underline {
-    @apply absolute left-0 bottom-0 h-[2px] bg-[#005177] origin-left transform scale-x-0 transition-transform duration-300 ease-out;
+    /* Fixed: reference now allows these utilities to be found */
+    @apply absolute left-0 bottom-0 h-[2px] bg-brand-navy origin-left scale-x-0 transition-transform duration-300 ease-out;
   }
   
   .group:hover .nav-link-underline {
@@ -29,10 +38,10 @@
     @apply w-full border-collapse text-[15px];
   }
 
-  /* Brand Header: Blue tint from image_ef696e.png */
+  /* Brand Header using theme variable */
   .why-us-table thead tr {
-    background-color: #E6F4FA;
-    color: #005177;
+    background-color: var(--color-brand-light-blue);
+    color: var(--color-brand-navy);
   }
 
   .why-us-table th {
@@ -40,20 +49,20 @@
   }
 
   .why-us-table td {
-    @apply p-4 border border-zinc-200 leading-relaxed vertical-align-top;
+    @apply p-4 border border-zinc-200 leading-relaxed align-top;
   }
 
   /* --- Footer Enhancements --- */
   .footer-social-icon {
-    @apply p-4 bg-zinc-50 border border-zinc-100 text-zinc-500 hover:bg-[#74B72E] hover:text-white transition-all duration-300 rounded-sm;
+    @apply p-4 bg-zinc-50 border border-zinc-100 text-zinc-500 hover:bg-brand-lime hover:text-white transition-all duration-300 rounded-sm;
   }
 
   .footer-cta-button {
-    @apply w-full bg-black text-white py-5 font-black text-[13px] tracking-[0.2em] hover:bg-[#74B72E] transition-all relative overflow-hidden;
+    @apply w-full bg-black text-white py-5 font-black text-[13px] tracking-[0.2em] hover:bg-brand-lime transition-all relative overflow-hidden;
   }
 }
 
-/* --- Custom Utilities for 15px and Smooth Transitions --- */
+/* --- Custom Utilities --- */
 .text-15 {
   font-size: 15px;
 }
