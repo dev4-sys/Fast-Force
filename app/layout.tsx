@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Facebook, Linkedin, Instagram, Menu, ChevronDown } from "lucide-react";
+import { Facebook, Linkedin, Instagram, Menu, ChevronDown, ChevronRight } from "lucide-react";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 HOME
               </Link>
 
-              {/* EMPLOYERS DROPDOWN */}
+              {/* EMPLOYERS - WHITE BACKGROUND */}
               <div className="group relative py-1 cursor-pointer">
                 <div className="flex items-center gap-1 group-hover:text-brand-lime transition-colors duration-300">
                   EMPLOYERS
@@ -59,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <span className="nav-link-underline" />
                 
                 <div className="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
-                  <div className="bg-white border border-zinc-100 shadow-xl py-4 min-w-[340px]">
+                  <div className="bg-white border border-zinc-100 shadow-xl min-w-[320px] py-2">
                     {[
                       { name: "WHY US", href: "/why-us" },
                       { name: "CORE SERVICES", href: "/core-services" },
@@ -73,7 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       <Link 
                         key={item.href}
                         href={item.href} 
-                        className="block px-8 py-3 text-brand-navy font-bold text-[13px] hover:bg-zinc-50 hover:text-brand-lime transition-colors uppercase leading-tight tracking-tight border-l-4 border-transparent hover:border-brand-lime"
+                        className="block px-8 py-4 text-[#a3c1d4] font-bold text-[13px] hover:bg-zinc-50 hover:text-brand-lime transition-colors uppercase tracking-tight"
                       >
                         {item.name}
                       </Link>
@@ -82,12 +82,64 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </div>
               </div>
 
-              <Link href="/candidates" className="group relative py-1 hover:text-brand-lime transition-colors duration-300">
-                CANDIDATES
+              {/* CANDIDATES - DARK BACKGROUND */}
+              <div className="group relative py-1 cursor-pointer">
+                <div className="flex items-center gap-1 group-hover:text-brand-lime transition-colors duration-300">
+                  CANDIDATES
+                  <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
+                </div>
                 <span className="nav-link-underline" />
-              </Link>
+                
+                <div className="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
+                  <div className="bg-[#222222] shadow-2xl py-2 min-w-[280px]">
+                    {[
+                      { name: "CURRENT JOB OPENING", href: "/jobs" },
+                      { name: "SUBMIT CV", href: "/submit-cv" },
+                      { name: "CANDIDATE ADVANCE REGISTRATION", href: "/register" },
+                      { name: "HEALTH & SAFETY", href: "/health-and-safety" },
+                    ].map((item) => (
+                      <Link 
+                        key={item.href}
+                        href={item.href} 
+                        className="block px-6 py-4 text-zinc-300 font-bold text-[13px] hover:bg-zinc-800 hover:text-white transition-colors uppercase tracking-wider"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
 
-              {/* WHO ARE WE DROPDOWN */}
+                    {/* SUB MENU FLY-OUT */}
+                    <div className="group/sub relative">
+                      <div className="flex items-center justify-between px-6 py-4 text-zinc-300 font-bold text-[13px] hover:bg-zinc-800 hover:text-white transition-colors cursor-pointer tracking-wider">
+                        RESOURCES
+                        <ChevronRight size={14} className="text-zinc-500" />
+                      </div>
+                      <div className="absolute left-full top-0 opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-200 bg-[#222222] min-w-[240px] shadow-2xl border-l border-zinc-700">
+                        {[
+                          { name: "CHANGE OF BANK ACCOUNT", href: "/bank" },
+                          { name: "CV TIPS", href: "/cv-tips" },
+                          { name: "INTERVIEW TIPS", href: "/interview-tips" },
+                          { name: "LEAVE REQUEST FORM", href: "/leave" },
+                          { name: "TIME SHEET", href: "/timesheet" },
+                        ].map((subItem) => (
+                          <Link 
+                            key={subItem.name}
+                            href={subItem.href}
+                            className="block px-6 py-4 text-zinc-300 font-bold text-[13px] hover:bg-zinc-800 hover:text-white transition-colors uppercase tracking-wider"
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+
+                    <Link href="/refer" className="block px-6 py-4 text-zinc-300 font-bold text-[13px] hover:bg-zinc-800 hover:text-white transition-colors uppercase tracking-wider">
+                      REFER A FRIEND!
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* WHO WE ARE - WHITE BACKGROUND */}
               <div className="group relative py-1 cursor-pointer">
                 <div className="flex items-center gap-1 group-hover:text-brand-lime transition-colors duration-300">
                   WHO WE ARE
@@ -96,17 +148,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <span className="nav-link-underline" />
                 
                 <div className="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
-                  <div className="bg-white border border-zinc-100 shadow-xl py-4 min-w-[220px]">
+                  <div className="bg-white border border-zinc-100 shadow-xl min-w-[240px] py-2">
                     {[
                       { name: "ABOUT US", href: "/about-us" },
                       { name: "CORE VALUES", href: "/core-values" },
-                      { name: "CORE SERVICES", href: "/core-services" }, // Fixed backslash here
+                      { name: "CORE SERVICES", href: "/core-services" },
                       { name: "CORPORATE PROFILE", href: "/corporate-profile" },
                     ].map((item) => (
                       <Link 
                         key={item.href}
                         href={item.href} 
-                        className="block px-8 py-3 text-brand-navy font-bold text-[13px] hover:bg-zinc-50 hover:text-brand-lime transition-colors uppercase leading-tight tracking-tight border-l-4 border-transparent hover:border-brand-lime"
+                        className="block px-8 py-3 text-[#a3c1d4] font-bold text-[13px] hover:bg-zinc-50 hover:text-brand-lime transition-colors uppercase tracking-tight"
                       >
                         {item.name}
                       </Link>
@@ -116,15 +168,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
 
               {/* REMAINING LINKS */}
-              {["HEALTH & SAFETY", "H&S TRAINING", "CONTACT"].map((name) => {
-                const linkHref = `/${name.toLowerCase().replace(/ & /g, '-and-').replace(/\s+/g, '-')}`;
-                return (
-                  <Link key={name} href={linkHref} className="group relative py-1 hover:text-brand-lime transition-colors duration-300">
+              {["HEALTH & SAFETY", "H&S TRAINING", "CONTACT"].map((name) => (
+                  <Link 
+                    key={name} 
+                    href={`/${name.toLowerCase().replace(/ & /g, '-and-').replace(/\s+/g, '-')}`} 
+                    className="group relative py-1 hover:text-brand-lime transition-colors duration-300"
+                  >
                     {name}
                     <span className="nav-link-underline" />
                   </Link>
-                );
-              })}
+              ))}
             </div>
 
             <button className="xl:hidden text-brand-navy"><Menu size={28} /></button>
@@ -148,15 +201,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     </a>
                   ))}
                 </div>
-                <p className="text-zinc-400 text-[11px] font-bold tracking-[0.3em] uppercase">Precision • Power • Performance</p>
               </div>
 
               <div className="flex flex-col items-center lg:items-start lg:border-l lg:border-zinc-100 lg:pl-12">
                 <h3 className="text-black font-black text-[16px] mb-8 tracking-widest border-b-2 border-zinc-50 pb-2 w-full text-center lg:text-left uppercase">Partners</h3>
                 <div className="space-y-8 flex flex-col items-center lg:items-start">
-                  <Image src="/RCSA-Corporate-Member-Logo.jpg" alt="RCSA" width={180} height={50} className="                                     hover:grayscale-0 transition opacity-80" />
-                  <Image src="/ss_member-long-maori.jpg" alt="SiteSafe" width={180} height={50} className=" hover:grayscale-0 transition opacity-80" />
-                  <Image src="/adt.jpg" alt="ADT" width={180} height={50} className=" hover:grayscale-0 transition opacity-80" />
+                  <Image src="/RCSA-Corporate-Member-Logo.jpg" alt="RCSA" width={180} height={50} className="opacity-80" />
+                  <Image src="/ss_member-long-maori.jpg" alt="SiteSafe" width={180} height={50} className="opacity-80" />
+                  <Image src="/adt.jpg" alt="ADT" width={180} height={50} className="opacity-80" />
                 </div>
               </div>
 
