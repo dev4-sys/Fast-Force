@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={openSans.className}>
       <body className="bg-white text-zinc-900 flex flex-col min-h-screen antialiased">
         
-        {/* --- NAVIGATION --- */}
+        {/* --- HEADER --- */}
         <nav className="sticky top-0 z-50 bg-white border-b border-zinc-100 px-4 md:px-8 py-6">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             <Link href="/" className="hover:opacity-80 transition shrink-0">
@@ -46,140 +46,86 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </Link>
             
             <div className="hidden xl:flex items-center space-x-8 text-[15px] font-bold tracking-tight text-brand-navy">
-              <Link href="/" className="relative py-1 hover:text-brand-lime transition-colors">
-                HOME
-              </Link>
+              <Link href="/" className="relative py-1 hover:text-brand-lime transition-colors">HOME</Link>
 
-              {/* EMPLOYERS - WHITE BACKGROUND */}
+              {/* EMPLOYERS - WHITE DROPDOWN */}
               <div className="group relative py-1 cursor-pointer">
                 <div className="flex items-center gap-1 group-hover:text-brand-lime transition-colors duration-300">
                   EMPLOYERS
                   <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
                 </div>
                 <span className="nav-link-underline" />
-                
                 <div className="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
                   <div className="bg-white border border-zinc-100 shadow-xl min-w-[320px] py-2">
-                    {[
-                      { name: "WHY US", href: "/why-us" },
-                      { name: "CORE SERVICES", href: "/core-services" },
-                      { name: "OUR HIRING PROCESS", href: "/hiring-process" },
-                      { name: "HEALTH & SAFETY", href: "/health-and-safety" },
-                      { name: "TERMS - PERMANENT", href: "/general-terms-permanent" },
-                      { name: "TERMS - TEMPORARY", href: "/general-terms-temporary" },
-                      { name: "TIMESHEET", href: "/Timesheet.pdf" },
-                      { name: "REQUEST TALENT", href: "/register" }
-                    ].map((item) => (
-                      <Link 
-                        key={item.href}
-                        href={item.href} 
-                        className="block px-8 py-4 text-[#a3c1d4] font-bold text-[13px] hover:bg-zinc-50 hover:text-brand-lime transition-colors uppercase tracking-tight"
-                      >
-                        {item.name}
+                    {["WHY US", "CORE SERVICES", "OUR HIRING PROCESS", "HEALTH & SAFETY", "TERMS - PERMANENT", "TERMS - TEMPORARY", "TIMESHEET", "REQUEST TALENT"].map((item) => (
+                      <Link key={item} href="#" className="block px-8 py-4 text-[#a3c1d4] font-bold text-[13px] hover:bg-zinc-50 hover:text-brand-lime transition-colors uppercase tracking-tight">
+                        {item}
                       </Link>
                     ))}
                   </div>
                 </div>
               </div>
 
-              {/* CANDIDATES - DARK BACKGROUND */}
+              {/* CANDIDATES - NOW WHITE DROPDOWN TO MATCH OTHERS */}
               <div className="group relative py-1 cursor-pointer">
                 <div className="flex items-center gap-1 group-hover:text-brand-lime transition-colors duration-300">
                   CANDIDATES
                   <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
                 </div>
                 <span className="nav-link-underline" />
-                
                 <div className="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
-                  <div className="bg-[#222222] shadow-2xl py-2 min-w-[280px]">
-                    {[
-                      { name: "CURRENT JOB OPENING", href: "/jobs" },
-                      { name: "SUBMIT CV", href: "/submit-cv" },
-                      { name: "CANDIDATE ADVANCE REGISTRATION", href: "/register" },
-                      { name: "HEALTH & SAFETY", href: "/health-and-safety" },
-                    ].map((item) => (
-                      <Link 
-                        key={item.href}
-                        href={item.href} 
-                        className="block px-6 py-4 text-zinc-300 font-bold text-[13px] hover:bg-zinc-800 hover:text-white transition-colors uppercase tracking-wider"
-                      >
-                        {item.name}
+                  <div className="bg-white border border-zinc-100 shadow-xl min-w-[300px] py-2">
+                    {["CURRENT JOB OPENING", "SUBMIT CV", "CANDIDATE ADVANCE REGISTRATION", "HEALTH & SAFETY"].map((item) => (
+                      <Link key={item} href="#" className="block px-8 py-4 text-[#a3c1d4] font-bold text-[13px] hover:bg-zinc-50 hover:text-brand-lime transition-colors uppercase tracking-tight">
+                        {item}
                       </Link>
                     ))}
-
-                    {/* SUB MENU FLY-OUT */}
+                    {/* RESOURCES SUB-MENU (WHITE STYLE) */}
                     <div className="group/sub relative">
-                      <div className="flex items-center justify-between px-6 py-4 text-zinc-300 font-bold text-[13px] hover:bg-zinc-800 hover:text-white transition-colors cursor-pointer tracking-wider">
+                      <div className="flex items-center justify-between px-8 py-4 text-[#a3c1d4] font-bold text-[13px] hover:bg-zinc-50 hover:text-brand-lime transition-colors cursor-pointer tracking-tight">
                         RESOURCES
-                        <ChevronRight size={14} className="text-zinc-500" />
+                        <ChevronRight size={14} />
                       </div>
-                      <div className="absolute left-full top-0 opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-200 bg-[#222222] min-w-[240px] shadow-2xl border-l border-zinc-700">
-                        {[
-                          { name: "CHANGE OF BANK ACCOUNT", href: "/bank" },
-                          { name: "CV TIPS", href: "/cv-tips" },
-                          { name: "INTERVIEW TIPS", href: "/interview-tips" },
-                          { name: "LEAVE REQUEST FORM", href: "/leave" },
-                          { name: "TIME SHEET", href: "/timesheet" },
-                        ].map((subItem) => (
-                          <Link 
-                            key={subItem.name}
-                            href={subItem.href}
-                            className="block px-6 py-4 text-zinc-300 font-bold text-[13px] hover:bg-zinc-800 hover:text-white transition-colors uppercase tracking-wider"
-                          >
-                            {subItem.name}
+                      <div className="absolute left-full top-0 opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-200 bg-white border border-zinc-100 min-w-[240px] shadow-xl">
+                        {["CHANGE OF BANK ACCOUNT", "CV TIPS", "INTERVIEW TIPS", "LEAVE REQUEST FORM", "TIME SHEET"].map((sub) => (
+                          <Link key={sub} href="#" className="block px-8 py-4 text-[#a3c1d4] font-bold text-[13px] hover:bg-zinc-50 hover:text-brand-lime transition-colors uppercase tracking-tight">
+                            {sub}
                           </Link>
                         ))}
                       </div>
                     </div>
-
-                    <Link href="/refer" className="block px-6 py-4 text-zinc-300 font-bold text-[13px] hover:bg-zinc-800 hover:text-white transition-colors uppercase tracking-wider">
+                    <Link href="#" className="block px-8 py-4 text-[#a3c1d4] font-bold text-[13px] hover:bg-zinc-50 hover:text-brand-lime transition-colors uppercase tracking-tight">
                       REFER A FRIEND!
                     </Link>
                   </div>
                 </div>
               </div>
 
-              {/* WHO WE ARE - WHITE BACKGROUND */}
+              {/* WHO WE ARE - WHITE DROPDOWN */}
               <div className="group relative py-1 cursor-pointer">
                 <div className="flex items-center gap-1 group-hover:text-brand-lime transition-colors duration-300">
                   WHO WE ARE
                   <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
                 </div>
                 <span className="nav-link-underline" />
-                
                 <div className="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
                   <div className="bg-white border border-zinc-100 shadow-xl min-w-[240px] py-2">
-                    {[
-                      { name: "ABOUT US", href: "/about-us" },
-                      { name: "CORE VALUES", href: "/core-values" },
-                      { name: "CORE SERVICES", href: "/core-services" },
-                      { name: "CORPORATE PROFILE", href: "/corporate-profile" },
-                    ].map((item) => (
-                      <Link 
-                        key={item.href}
-                        href={item.href} 
-                        className="block px-8 py-3 text-[#a3c1d4] font-bold text-[13px] hover:bg-zinc-50 hover:text-brand-lime transition-colors uppercase tracking-tight"
-                      >
-                        {item.name}
+                    {["ABOUT US", "CORE VALUES", "CORE SERVICES", "CORPORATE PROFILE"].map((item) => (
+                      <Link key={item} href="#" className="block px-8 py-4 text-[#a3c1d4] font-bold text-[13px] hover:bg-zinc-50 hover:text-brand-lime transition-colors uppercase tracking-tight">
+                        {item}
                       </Link>
                     ))}
                   </div>
                 </div>
               </div>
 
-              {/* REMAINING LINKS */}
               {["HEALTH & SAFETY", "H&S TRAINING", "CONTACT"].map((name) => (
-                  <Link 
-                    key={name} 
-                    href={`/${name.toLowerCase().replace(/ & /g, '-and-').replace(/\s+/g, '-')}`} 
-                    className="group relative py-1 hover:text-brand-lime transition-colors duration-300"
-                  >
+                  <Link key={name} href="#" className="group relative py-1 hover:text-brand-lime transition-colors duration-300">
                     {name}
                     <span className="nav-link-underline" />
                   </Link>
               ))}
             </div>
-
             <button className="xl:hidden text-brand-navy"><Menu size={28} /></button>
           </div>
         </nav>
